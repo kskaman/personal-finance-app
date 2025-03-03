@@ -1,6 +1,5 @@
 import { Box, Link, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import theme from "../../theme/theme";
 import { useContext } from "react";
 import PotIcon from "../../Icons/PotIcon";
 import CaretRightIcon from "../../Icons/CaretRightIcon";
@@ -29,11 +28,7 @@ const PotsOverview = () => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Typography
-            fontWeight="bold"
-            fontSize="20px"
-            color={theme.palette.primary.main}
-          >
+          <Typography fontWeight="bold" fontSize="20px" color={"primary.main"}>
             Pots
           </Typography>
           <Link
@@ -46,16 +41,16 @@ const PotsOverview = () => {
           >
             <Typography
               fontSize="14px"
-              color={theme.palette.primary.light}
+              color={"primary.light"}
               sx={{
                 ":hover": {
-                  color: theme.palette.primary.main,
+                  color: "primary.main",
                 },
               }}
             >
               See Details
             </Typography>
-            <CaretRightIcon color={theme.palette.primary.light} />
+            <CaretRightIcon color={"primary.light"} />
           </Link>
         </Stack>
         <Stack direction={isParentWidth ? "column" : "row"} gap="20px">
@@ -66,15 +61,15 @@ const PotsOverview = () => {
             alignItems="center"
             gap="16px"
             height="110px"
-            bgcolor={theme.palette.background.default}
+            bgcolor={"background.default"}
             borderRadius="12px"
           >
-            <PotIcon color={theme.palette.others.green} />
+            <PotIcon color={"others.green"} />
             <Stack direction="column" justifyContent="space-between">
-              <Typography fontSize="14px" color={theme.palette.primary.light}>
+              <Typography fontSize="14px" color={"primary.light"}>
                 Total Saved
               </Typography>
-              <Typography fontSize="32px" color={theme.palette.primary.main}>
+              <Typography fontSize="32px" color={"primary.main"}>
                 ${formatNumber(totalSaved)}
               </Typography>
             </Stack>
@@ -108,16 +103,13 @@ const PotsOverview = () => {
 
                 {/* Pot Details */}
                 <Stack direction="column">
-                  <Typography
-                    fontSize="12px"
-                    color={theme.palette.primary.light}
-                  >
+                  <Typography fontSize="12px" color={"primary.light"}>
                     {pot.name}
                   </Typography>
                   <Typography
                     fontSize="14px"
                     fontWeight="bold"
-                    color={theme.palette.primary.main}
+                    color={"primary.main"}
                   >
                     ${formatNumber(pot.total)}
                   </Typography>

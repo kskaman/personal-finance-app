@@ -10,7 +10,7 @@ import SearchInput from "./SearchInput";
 import CustomDropdown from "./CustomDropdown";
 import SearchIcon from "../Icons/SearchIcon";
 import FilterIcon from "../Icons/FilterIcon";
-import theme from "../theme/theme";
+
 import { MD_BREAK } from "../data/widthConstants";
 
 interface FilterProps {
@@ -54,16 +54,12 @@ const FilterOption = ({
     gap="8px"
     justifyContent={justifyContent || "flex-start"}
   >
-    <Typography
-      fontSize="14px"
-      color={theme.palette.primary.light}
-      whiteSpace="nowrap"
-    >
+    <Typography fontSize="14px" color={"primary.light"} whiteSpace="nowrap">
       {label}
     </Typography>
     <CustomDropdown
       width="fit-content"
-      color={theme.palette.primary.main}
+      color={"primary.main"}
       options={options}
       value={value}
       onChange={onChange}
@@ -104,7 +100,7 @@ const Filter = ({
         />
         {isParentMd ? (
           <IconButton onClick={() => setIsFilterOpen(!isFilterOpen)}>
-            <FilterIcon color={theme.palette.primary.main} />
+            <FilterIcon color={"primary.main"} />
           </IconButton>
         ) : (
           <Stack direction="row" gap="24px" alignItems="center">

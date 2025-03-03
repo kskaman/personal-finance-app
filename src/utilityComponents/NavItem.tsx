@@ -1,8 +1,6 @@
 import { Typography, Box, Stack } from "@mui/material";
 import { NavLink } from "react-router";
 
-import theme from "../theme/theme";
-
 interface NavItemProps {
   Icon: React.FC<{ color: string }>;
   text: string;
@@ -22,21 +20,21 @@ const NavItem = ({ to, Icon, text, isMinimized }: NavItemProps) => {
         width: isMinimized ? "80px" : "276px",
         height: "56px",
         padding: "16px 32px",
-        color: theme.palette.background.paper,
+        color: "background.paper",
         cursor: "pointer",
         textDecoration: "none",
         ":hover": {
-          color: theme.palette.secondary.contrastText,
+          color: "secondary.contrastText",
         },
         // this should be at end else hover properties show up
         "&.active": {
-          backgroundColor: theme.palette.background.default,
-          color: theme.palette.primary.main,
+          backgroundColor: "background.default",
+          color: "primary.main",
           borderTopRightRadius: "12px",
           borderBottomRightRadius: "12px",
-          borderLeft: `5px solid ${theme.palette.secondary.main}`,
+          borderLeft: `5px solid secondary.main`,
           ".iconClass": {
-            color: theme.palette.secondary.main,
+            color: "secondary.main",
           },
         },
       }}

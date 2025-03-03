@@ -1,6 +1,5 @@
 import React from "react";
 import { TextField, InputAdornment, Typography, Box } from "@mui/material";
-import theme from "../../theme/theme";
 
 interface CustomTextFieldProps {
   value: string;
@@ -29,7 +28,7 @@ const ModalTextField: React.FC<CustomTextFieldProps> = ({
     <Box>
       <Typography
         fontSize="12px"
-        color={theme.palette.primary.light}
+        color={"primary.light"}
         fontWeight="bold"
         sx={{ marginBottom: "2px" }}
       >
@@ -46,11 +45,18 @@ const ModalTextField: React.FC<CustomTextFieldProps> = ({
         error={!!error}
         helperText={error ? error.message : ""}
         sx={{
+          color: "primary.main",
+          "& .MuiInputBase-input": {
+            color: "primary.main",
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "primary.main",
+          },
           "& .MuiOutlinedInput-root": {
             borderRadius: "8px",
             height: "45px",
             "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-              borderColor: theme.palette.primary.main,
+              borderColor: "primary.main",
             },
           },
           "& .MuiOutlinedInput-notchedOutline": {
@@ -64,10 +70,7 @@ const ModalTextField: React.FC<CustomTextFieldProps> = ({
             ...(adornmentText && {
               startAdornment: (
                 <InputAdornment position="start">
-                  <Typography
-                    color={theme.palette.primary.light}
-                    fontSize="14px"
-                  >
+                  <Typography color={"primary.light"} fontSize="14px">
                     {adornmentText}
                   </Typography>
                 </InputAdornment>

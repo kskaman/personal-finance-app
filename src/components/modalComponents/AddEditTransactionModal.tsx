@@ -4,6 +4,7 @@ import {
   Box,
   FormControl,
   FormControlLabel,
+  lighten,
   Radio,
   RadioGroup,
   Stack,
@@ -13,11 +14,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import ActionModal from "./ActionModal";
 import ModalSelectDropdown from "./ModalSelectDropdown";
-import theme from "../../theme/theme";
 import ModalTextField from "./ModalTextField";
 import { categories } from "../../data/categories";
-import Button from "../../utilityComponents/Button";
-import { hexToRGBA } from "../../utils/utilityFunctions";
+import CustomButton from "../../utilityComponents/CustomButton";
+import { useColorFromToken } from "../../customHooks/useColorFromToken";
 
 // Interfaces and Props
 interface FormValues {
@@ -231,7 +231,7 @@ const AddEditTransactionModal = ({
           <Stack gap={"4px"}>
             <Typography
               fontSize="12px"
-              color={theme.palette.primary.light}
+              color={"primary.light"}
               fontWeight="bold"
             >
               Payment Type
@@ -373,7 +373,7 @@ const AddEditTransactionModal = ({
               {/* Payment Direction */}
               <Typography
                 fontSize="12px"
-                color={theme.palette.primary.light}
+                color={"primary.light"}
                 fontWeight="bold"
                 marginBottom={"4px"}
               >
@@ -430,20 +430,20 @@ const AddEditTransactionModal = ({
           </Stack>
 
           {/* SAVE BUTTON */}
-          <Button
+          <CustomButton
             type="submit"
             width="100%"
             height="53px"
-            backgroundColor={theme.palette.primary.main}
+            backgroundColor={"primary.main"}
             onClick={() => {}}
-            color={theme.palette.text.primary}
-            hoverColor={theme.palette.text.primary}
-            hoverBgColor={hexToRGBA(theme.palette.primary.main, 0.8)}
+            color={"text.primary"}
+            hoverColor={"text.primary"}
+            hoverBgColor={lighten(useColorFromToken("primary.main"), 0.2)}
           >
             <Typography fontSize="14px" fontWeight="bold">
               Save Changes
             </Typography>
-          </Button>
+          </CustomButton>
         </Stack>
       </form>
     </ActionModal>

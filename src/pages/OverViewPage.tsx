@@ -1,6 +1,5 @@
 import SetTitle from "../components/SetTitle";
 import { Box, Stack, Typography } from "@mui/material";
-import theme from "../theme/theme";
 import Balance from "../components/overviewComponents/Balance";
 import TransactionsOverview from "../components/overviewComponents/TransactionsOverview";
 import PotsOverview from "../components/overviewComponents/PotsOverview";
@@ -25,7 +24,7 @@ const OverViewPage = () => {
               height="56px"
               fontSize="32px"
               fontWeight="bold"
-              color={theme.palette.primary.main}
+              color={"primary.main"}
             >
               Overview
             </Typography>

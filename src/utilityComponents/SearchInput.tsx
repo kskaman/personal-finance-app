@@ -1,5 +1,4 @@
 import { InputAdornment, TextField } from "@mui/material";
-import theme from "../theme/theme";
 
 interface Props {
   placeholder: string;
@@ -17,13 +16,20 @@ const SearchInput = ({ placeholder, value, width, onChange, Icon }: Props) => {
       value={value}
       onChange={onChange}
       sx={{
+        color: "primary.main",
+        "& .MuiInputBase-input": {
+          color: "primary.main",
+        },
         "& .MuiOutlinedInput-root": {
           borderRadius: "8px", // Apply border-radius to input
           height: "100%",
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "primary.main",
+          },
           "&.Mui-focused": {
             "& .MuiOutlinedInput-notchedOutline": {
               // Apply to the fieldset border, on focus
-              borderColor: theme.palette.primary.main,
+              borderColor: "primary.main",
             },
           },
         },

@@ -6,7 +6,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import theme from "../../theme/theme";
 import {
   formatDateToReadable,
   formatNumber,
@@ -39,7 +38,7 @@ const BudgetTransactionsModal = ({
                   margin: "12px 0",
                   padding: 0,
                   height: "40px",
-                  color: theme.palette.primary.light,
+                  color: "primary.light",
                 }}
               >
                 {/* Rounded Avatar with initials */}
@@ -47,7 +46,7 @@ const BudgetTransactionsModal = ({
                   sx={{
                     fontSize: "12px",
                     fontWeight: "bold",
-                    color: theme.palette.primary.contrastText,
+                    color: "text.primary",
                     backgroundColor: transaction.theme,
                     width: "40px",
                     height: "40px",
@@ -68,7 +67,7 @@ const BudgetTransactionsModal = ({
                     <Typography
                       fontSize="14px"
                       fontWeight="bold"
-                      color={theme.palette.secondary.main}
+                      color={"secondary.main"}
                     >
                       +${formatNumber(transaction.amount)}
                     </Typography>
@@ -76,16 +75,13 @@ const BudgetTransactionsModal = ({
                     <Typography
                       fontSize="14px"
                       fontWeight="bold"
-                      color={theme.palette.primary.main}
+                      color={"primary.main"}
                     >
                       -$
                       {formatNumber(Math.abs(transaction.amount))}
                     </Typography>
                   )}
-                  <Typography
-                    fontSize="12px"
-                    color={theme.palette.primary.light}
-                  >
+                  <Typography fontSize="12px" color={"primary.light"}>
                     {formatDateToReadable(transaction.date)}
                   </Typography>
                 </Stack>
@@ -94,7 +90,7 @@ const BudgetTransactionsModal = ({
                 <Divider
                   sx={{
                     width: "100%", // Ensure the divider spans across
-                    color: theme.palette.primary.light,
+                    color: "primary.light",
                     marginTop: "8px",
                   }}
                 />

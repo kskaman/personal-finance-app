@@ -1,12 +1,11 @@
 import { Box, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import SetTitle from "../components/SetTitle";
-import theme from "../theme/theme";
 import PageDiv from "../utilityComponents/PageDiv";
 import { PotsActionContext, PotsDataContext } from "../context/PotsContext";
 import { useContext, useEffect, useMemo, useState } from "react";
 import PotItem from "../components/potsComponents/PotItem";
-import Button from "../utilityComponents/Button";
+import CustomButton from "../utilityComponents/CustomButton";
 import useParentWidth from "../customHooks/useParentWidth";
 import { MD_BREAK } from "../data/widthConstants";
 import useModal from "../customHooks/useModal";
@@ -167,26 +166,26 @@ const PotsPage = () => {
                 height="56px"
                 fontSize="32px"
                 fontWeight="bold"
-                color={theme.palette.primary.main}
+                color={"primary.main"}
               >
                 Pots
               </Typography>
-              <Button
+              <CustomButton
                 height="53px"
                 padding="16px"
-                backgroundColor={theme.palette.primary.main}
-                color={theme.palette.text.primary}
+                backgroundColor={"primary.main"}
+                color={"text.primary"}
                 onClick={() => {
                   setMode("add");
                   openAddEditModal();
                 }}
-                hoverColor={theme.palette.text.primary}
-                hoverBgColor={theme.palette.primary.light}
+                hoverColor={"text.primary"}
+                hoverBgColor={"primary.light"}
               >
                 <Typography noWrap fontSize="14px" fontWeight="bold">
                   + Add New Pot
                 </Typography>
-              </Button>
+              </CustomButton>
             </Stack>
             <Grid
               container

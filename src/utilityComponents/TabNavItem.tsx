@@ -1,7 +1,5 @@
-// TabNavItem.tsx (unchanged from your snippet, except we confirm it’s imported in TabNavBar)
 import { Typography, Box, Stack } from "@mui/material";
 import { NavLink } from "react-router";
-import theme from "../theme/theme";
 
 interface TabNavItemProps {
   Icon: React.FC<{ color: string }>;
@@ -22,20 +20,20 @@ const TabNavItem = ({ to, Icon, text, isMobile }: TabNavItemProps) => {
         width: isMobile ? "68.6px" : "104px",
         height: isMobile ? "44px" : "66px",
         padding: isMobile ? "9px 0 15px 0" : "7px 0 13px 0",
-        color: theme.palette.background.paper,
+        color: "background.paper",
         cursor: "pointer",
         textDecoration: "none",
         ":hover": {
-          color: theme.palette.secondary.contrastText,
+          color: "secondary.contrastText",
         },
         "&.active": {
-          backgroundColor: theme.palette.secondary.contrastText,
-          color: theme.palette.primary.main,
+          backgroundColor: "secondary.contrastText",
+          color: "primary.main",
           borderTopRightRadius: "12px",
           borderTopLeftRadius: "12px",
-          borderBottom: `5px solid ${theme.palette.secondary.main}`,
+          borderBottom: `5px solid secondary.main`,
           ".iconClass": {
-            color: theme.palette.secondary.main,
+            color: "secondary.main",
           },
         },
       }}

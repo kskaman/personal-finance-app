@@ -4,11 +4,12 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import ActionModal from "./ActionModal";
-import theme from "../../theme/theme";
-import Button from "../../utilityComponents/Button";
+import CustomButton from "../../utilityComponents/CustomButton";
 import ModalSelectDropdown from "./ModalSelectDropdown";
 import ModalTextField from "./ModalTextField";
-import { formatDecimalNumber, hexToRGBA } from "../../utils/utilityFunctions";
+import { formatDecimalNumber } from "../../utils/utilityFunctions";
+import { lighten } from "@mui/material";
+import { useColorFromToken } from "../../customHooks/useColorFromToken";
 
 // Types & Interfaces
 interface AddEditBudgetModalProps {
@@ -161,7 +162,7 @@ const AddEditBudgetModal = ({
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack gap="20px">
-          <Typography fontSize="14px" color={theme.palette.primary.light}>
+          <Typography fontSize="14px" color={"primary.light"}>
             {mode === "edit"
               ? "As your budget changes, feel free to update your spending limits."
               : "Choose a category to set a spending budget. These categories can help you monitor spending."}
@@ -223,20 +224,20 @@ const AddEditBudgetModal = ({
           />
 
           {/* SAVE BUTTON */}
-          <Button
+          <CustomButton
             type="submit"
             width="100%"
             height="53px"
-            backgroundColor={theme.palette.primary.main}
+            backgroundColor={"primary.main"}
             onClick={() => {}}
-            color={theme.palette.text.primary}
-            hoverColor={theme.palette.text.primary}
-            hoverBgColor={hexToRGBA(theme.palette.primary.main, 0.8)}
+            color={"text.primary"}
+            hoverColor={"text.primary"}
+            hoverBgColor={lighten(useColorFromToken("primary.main"), 0.2)}
           >
             <Typography fontSize="14px" fontWeight="bold">
               Save Changes
             </Typography>
-          </Button>
+          </CustomButton>
         </Stack>
       </form>
     </ActionModal>

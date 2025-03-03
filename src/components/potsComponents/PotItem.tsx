@@ -1,8 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { Pot } from "../../types/Data";
 import SubContainer from "../../utilityComponents/SubContainer";
-import Button from "../../utilityComponents/Button";
-import theme from "../../theme/theme";
+import CustomButton from "../../utilityComponents/CustomButton";
 import PotsProgressBar from "../../utilityComponents/PotsProgressBar";
 import OptionsButton from "../modalComponents/OptionsButton";
 
@@ -34,7 +33,7 @@ const PotItem = ({
           role="heading"
           fontSize="20px"
           fontWeight="bold"
-          color={theme.palette.primary.main}
+          color={"primary.main"}
         >
           {pot.name}
         </Typography>
@@ -49,15 +48,15 @@ const PotItem = ({
         value={pot.total}
         target={pot.target}
         color={pot.theme}
-        bgColor={theme.palette.background.default}
+        bgColor={"background.default"}
       />
 
       <Stack direction="row" gap="16px" height="53px">
-        <Button
+        <CustomButton
           flex={1}
           height="100%"
-          color={theme.palette.primary.main}
-          backgroundColor={theme.palette.background.default}
+          color={"primary.main"}
+          backgroundColor={"background.default"}
           onClick={setPotAddMoneyModalOpen}
           hoverBgColor="inherit"
           hoverColor="inherit"
@@ -65,12 +64,12 @@ const PotItem = ({
           <Typography fontSize="14px" fontWeight="bold" noWrap>
             + Add Money
           </Typography>
-        </Button>
-        <Button
+        </CustomButton>
+        <CustomButton
           flex={1}
           height="100%"
-          color={theme.palette.primary.main}
-          backgroundColor={theme.palette.background.default}
+          color={"primary.main"}
+          backgroundColor={"background.default"}
           onClick={setPotWithdrawMoneyModalOpen}
           hoverBgColor="inherit"
           hoverColor="inherit"
@@ -78,7 +77,7 @@ const PotItem = ({
           <Typography fontSize="14px" fontWeight="bold" noWrap>
             Withdraw
           </Typography>
-        </Button>
+        </CustomButton>
       </Stack>
     </SubContainer>
   );

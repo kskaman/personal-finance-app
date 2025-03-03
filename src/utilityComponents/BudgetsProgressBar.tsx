@@ -1,5 +1,4 @@
 import { Box, LinearProgress, Stack, Typography } from "@mui/material";
-import theme from "../theme/theme";
 import { formatNumber } from "../utils/utilityFunctions";
 
 interface BudgetsProgressBarProps {
@@ -38,7 +37,7 @@ const BudgetsProgressBar = ({
           height: "21px",
         }}
       >
-        <Typography fontSize="14px" color={theme.palette.primary.light}>
+        <Typography fontSize="14px" color={"primary.light"}>
           Maximum of ${formatNumber(total)}
         </Typography>
       </Stack>
@@ -50,9 +49,7 @@ const BudgetsProgressBar = ({
           borderRadius: "4px",
           backgroundColor: bgColor,
           "& .MuiLinearProgress-bar": {
-            backgroundColor: isOverBudget
-              ? theme.palette.secondary.dark
-              : color,
+            backgroundColor: isOverBudget ? "secondary.dark" : color,
             borderRadius: "4px",
           },
         }}
@@ -71,13 +68,13 @@ const BudgetsProgressBar = ({
             bgcolor={color}
           ></Box>
           <Stack direction="column">
-            <Typography fontSize="12px" color={theme.palette.primary.light}>
+            <Typography fontSize="12px" color={"primary.light"}>
               Spent
             </Typography>
             <Typography
               fontSize="14px"
               fontWeight="bold"
-              color={theme.palette.primary.light}
+              color={"primary.light"}
             >
               ${formatNumber(value)}
             </Typography>
@@ -91,13 +88,13 @@ const BudgetsProgressBar = ({
             bgcolor={bgColor}
           ></Box>
           <Stack direction="column">
-            <Typography fontSize="12px" color={theme.palette.primary.light}>
+            <Typography fontSize="12px" color={"primary.light"}>
               {isOverBudget ? "Over Budget" : "Remaining"}
             </Typography>
             <Typography
               fontSize="14px"
               fontWeight="bold"
-              color={theme.palette.primary.light}
+              color={"primary.light"}
             >
               {isOverBudget && "-"} ${formatNumber(remaining)}
             </Typography>

@@ -1,7 +1,5 @@
 import { Typography, Stack } from "@mui/material";
 
-import theme from "../../theme/theme";
-
 import { formatNumber } from "../../utils/utilityFunctions";
 import { useContext } from "react";
 import { BalanceTransactionsDataContext } from "../../context/BalanceTransactionsContext";
@@ -26,12 +24,12 @@ const Balance = ({ isParentSm }: { isParentSm: boolean }) => {
           gap="6px"
           padding="24px"
           borderRadius="12px"
-          bgcolor={theme.palette.primary.main}
+          bgcolor={"primary.main"}
         >
-          <Typography fontSize="12px" color={theme.palette.text.primary}>
+          <Typography fontSize="12px" color={"text.primary"}>
             Current Balance
           </Typography>
-          <Typography fontSize="32px" color={theme.palette.text.primary}>
+          <Typography fontSize="32px" color={"text.primary"}>
             ${formatNumber(balance.current)}
           </Typography>
         </Stack>
@@ -42,12 +40,12 @@ const Balance = ({ isParentSm }: { isParentSm: boolean }) => {
           gap="6px"
           padding="24px"
           borderRadius="12px"
-          bgcolor={theme.palette.text.primary}
+          bgcolor={"text.primary"}
         >
-          <Typography fontSize="12px" color={theme.palette.primary.light}>
+          <Typography fontSize="12px" color={"primary.light"}>
             Income
           </Typography>
-          <Typography fontSize="32px" color={theme.palette.primary.main}>
+          <Typography fontSize="32px" color={"primary.main"}>
             ${formatNumber(balance.income)}
           </Typography>
         </Stack>
@@ -58,12 +56,12 @@ const Balance = ({ isParentSm }: { isParentSm: boolean }) => {
           gap="6px"
           padding="24px"
           borderRadius="12px"
-          bgcolor={theme.palette.text.primary}
+          bgcolor={"text.primary"}
         >
-          <Typography fontSize="12px" color={theme.palette.primary.light}>
+          <Typography fontSize="12px" color={"primary.light"}>
             Expenses
           </Typography>
-          <Typography fontSize="32px" color={theme.palette.primary.main}>
+          <Typography fontSize="32px" color={"primary.main"}>
             ${formatNumber(balance.expenses)}
           </Typography>
         </Stack>

@@ -1,7 +1,6 @@
 import { Stack, Typography } from "@mui/material";
 import CaretLeftIcon from "../../Icons/CaretLeftIcon";
-import theme from "../../theme/theme";
-import Button from "../../utilityComponents/Button";
+import CustomButton from "../../utilityComponents/CustomButton";
 import CaretRightIcon from "../../Icons/CaretRightIcon";
 import { SM_BREAK } from "../../data/widthConstants";
 
@@ -81,53 +80,49 @@ const PageNav = ({
       justifyContent="space-between"
       alignItems="flex-end"
     >
-      <Button
-        color={theme.palette.primary.dark}
-        borderColor={theme.palette.primary.dark}
+      <CustomButton
+        color={"primary.dark"}
+        borderColor={"primary.dark"}
         onClick={() => handlePageSelect(selectedPage - 1)}
-        hoverColor={theme.palette.text.primary}
-        hoverBgColor={theme.palette.primary.dark}
+        hoverColor={"text.primary"}
+        hoverBgColor={"primary.dark"}
       >
         <CaretLeftIcon color="inherit" />
         <Typography color="inherit" display={{ xs: "none", sm: "block" }}>
           Prev
         </Typography>
-      </Button>
+      </CustomButton>
 
       <Stack direction="row" gap="8px">
         {displayedNumbers.map((num) =>
           typeof num === "number" ? (
-            <Button
+            <CustomButton
               key={num}
               color={
-                num === selectedPage
-                  ? theme.palette.primary.contrastText
-                  : theme.palette.primary.main
+                num === selectedPage ? "primary.contrastText" : "primary.main"
               }
               onClick={() => handlePageSelect(num)}
               borderColor={
-                num === selectedPage
-                  ? theme.palette.primary.main
-                  : theme.palette.primary.dark
+                num === selectedPage ? "primary.main" : "primary.dark"
               }
               backgroundColor={
-                num === selectedPage ? theme.palette.primary.main : "inherit"
+                num === selectedPage ? "primary.main" : "inherit"
               }
-              hoverColor={theme.palette.text.primary}
-              hoverBgColor={theme.palette.primary.dark}
+              hoverColor={"text.primary"}
+              hoverBgColor={"primary.dark"}
             >
               <Typography>{num}</Typography>
-            </Button>
+            </CustomButton>
           ) : (
             <Typography
               key={num}
               padding="0 16px 6px"
-              color={theme.palette.primary.main}
+              color={"primary.main"}
               display="flex"
               alignItems="flex-end"
               justifyContent="center"
               borderRadius="8px"
-              border={`1px solid ${theme.palette.primary.dark}`}
+              border={`1px solid primary.dark`}
             >
               {num}
             </Typography>
@@ -135,18 +130,18 @@ const PageNav = ({
         )}
       </Stack>
 
-      <Button
-        color={theme.palette.primary.dark}
-        borderColor={theme.palette.primary.dark}
+      <CustomButton
+        color={"primary.dark"}
+        borderColor={"primary.dark"}
         onClick={() => handlePageSelect(selectedPage + 1)}
-        hoverColor={theme.palette.text.primary}
-        hoverBgColor={theme.palette.primary.dark}
+        hoverColor={"text.primary"}
+        hoverBgColor={"primary.dark"}
       >
         <Typography color="inherit" display={{ xs: "none", sm: "block" }}>
           Next
         </Typography>
         <CaretRightIcon color="inherit" />
-      </Button>
+      </CustomButton>
     </Stack>
   );
 };

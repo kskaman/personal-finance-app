@@ -14,7 +14,7 @@ import {
   formatNumber,
   getInitials,
 } from "../../utils/utilityFunctions";
-import theme from "../../theme/theme";
+
 import CaretRightIcon from "../../Icons/CaretRightIcon";
 import SubContainer from "../../utilityComponents/SubContainer";
 import { BalanceTransactionsDataContext } from "../../context/BalanceTransactionsContext";
@@ -27,11 +27,7 @@ const TransactionsOverview = () => {
   return (
     <SubContainer gap="32px">
       <Stack direction="row" alignItems="center" justifyContent="space-between">
-        <Typography
-          fontWeight="bold"
-          fontSize="20px"
-          color={theme.palette.primary.main}
-        >
+        <Typography fontWeight="bold" fontSize="20px" color={"primary.main"}>
           Transactions
         </Typography>
         <Link
@@ -44,16 +40,16 @@ const TransactionsOverview = () => {
         >
           <Typography
             fontSize="14px"
-            color={theme.palette.primary.light}
+            color={"primary.light"}
             sx={{
               ":hover": {
-                color: theme.palette.primary.main,
+                color: "primary.main",
               },
             }}
           >
             View All
           </Typography>
-          <CaretRightIcon color={theme.palette.primary.light} />
+          <CaretRightIcon color={"primary.light"} />
         </Link>
       </Stack>
 
@@ -72,7 +68,7 @@ const TransactionsOverview = () => {
                 sx={{
                   fontSize: "12px",
                   fontWeight: "bold",
-                  color: theme.palette.primary.contrastText,
+                  color: "text.primary",
                   backgroundColor: transaction.theme,
                   width: "40px",
                   height: "40px",
@@ -94,7 +90,7 @@ const TransactionsOverview = () => {
                   <Typography
                     fontSize="14px"
                     fontWeight="bold"
-                    color={theme.palette.secondary.main}
+                    color={"secondary.main"}
                   >
                     +${formatNumber(transaction.amount)}
                   </Typography>
@@ -102,12 +98,12 @@ const TransactionsOverview = () => {
                   <Typography
                     fontSize="14px"
                     fontWeight="bold"
-                    color={theme.palette.primary.main}
+                    color={"primary.main"}
                   >
                     -${formatNumber(Math.abs(transaction.amount))}
                   </Typography>
                 )}
-                <Typography fontSize="12px" color={theme.palette.primary.light}>
+                <Typography fontSize="12px" color={"primary.light"}>
                   {formatDateToReadable(transaction.date)}
                 </Typography>
               </Stack>

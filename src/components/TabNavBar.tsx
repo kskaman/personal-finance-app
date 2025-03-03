@@ -1,7 +1,5 @@
 import { Stack } from "@mui/material";
 
-import theme from "../theme/theme";
-
 import TabNavItem from "../utilityComponents/TabNavItem";
 import OverViewIcon from "../Icons/OverViewIcon";
 import TransactionsIcon from "../Icons/TransactionsIcon";
@@ -22,7 +20,7 @@ const TabNavBar = ({ isMobile }: TabNavBarProps) => {
       justifyContent="space-evenly"
       height={isMobile ? "52px" : "74px"}
       sx={{
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: "primary.main",
         borderTopLeftRadius: "8px",
         borderTopRightRadius: "8px",
       }}

@@ -1,7 +1,5 @@
-import { Stack, Typography } from "@mui/material";
-import theme from "../../theme/theme";
-import Button from "../../utilityComponents/Button";
-import { hexToRGBA } from "../../utils/utilityFunctions";
+import { lighten, Stack, Typography } from "@mui/material";
+import CustomButton from "../../utilityComponents/CustomButton";
 import ActionModal from "./ActionModal";
 import { Controller, useForm } from "react-hook-form";
 import ModalTextField from "./ModalTextField";
@@ -9,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import PotsModalProgressBar from "./PotsModalProgressBar";
 import { useEffect, useState } from "react";
+import { useColorFromToken } from "../../customHooks/useColorFromToken";
 
 // Types & Interface
 interface PotMoneyModalProps {
@@ -158,6 +157,9 @@ const PotMoneyModal = ({
     }
   }, [watchedAmount, type, potTarget, potTotal, maxLimit]);
 
+  // lightened color for button hover
+  const lightPrimaryMain = lighten(useColorFromToken("primary.main"), 0.2);
+
   return (
     <ActionModal
       open={open}
@@ -170,7 +172,7 @@ const PotMoneyModal = ({
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack gap="20px">
-          <Typography fontSize="14px" color={theme.palette.primary.light}>
+          <Typography fontSize="14px" color={"primary.light"}>
             {type === "withdraw"
               ? "Withdraw from your pot to put money back in your main balance. This will reduce the amount you have in this pot."
               : "Add money to your pot to keep it separate from your main balance. As soon as you add this money, it will be deducted from your current balance."}
@@ -181,12 +183,8 @@ const PotMoneyModal = ({
               oldValue={potTotal}
               valueChange={watchedAmount}
               target={potTarget + extra}
-              color={
-                type === "addMoney"
-                  ? theme.palette.others.green
-                  : theme.palette.others.red
-              }
-              bgColor={theme.palette.background.default}
+              color={type === "addMoney" ? "others.green" : "others.red"}
+              bgColor={"background.default"}
             />
           )}
           {/* AMOUNT FIELD */}
@@ -208,49 +206,49 @@ const PotMoneyModal = ({
 
           {exceedFlag || showConfirm ? (
             <Stack direction="row" spacing={2} mt={1}>
-              <Button
+              <CustomButton
                 onClick={handleConfirm}
-                backgroundColor={theme.palette.primary.main}
+                backgroundColor={"primary.main"}
                 width="100%"
                 height="53px"
-                color={theme.palette.text.primary}
-                hoverColor={theme.palette.text.primary}
-                hoverBgColor={hexToRGBA(theme.palette.primary.main, 0.8)}
+                color={"text.primary"}
+                hoverColor={"text.primary"}
+                hoverBgColor={lightPrimaryMain}
               >
                 <Typography fontSize="14px" fontWeight="bold">
                   Proceed
                 </Typography>
-              </Button>
-              <Button
+              </CustomButton>
+              <CustomButton
                 onClick={handleCancel}
-                backgroundColor={theme.palette.text.primary}
+                backgroundColor={"text.primary"}
                 width="100%"
                 height="53px"
-                color={theme.palette.primary.light}
-                hoverColor={theme.palette.primary.light}
-                hoverBgColor={theme.palette.text.primary}
+                color={"primary.light"}
+                hoverColor={"primary.light"}
+                hoverBgColor={"text.primary"}
               >
                 <Typography fontSize="14px" fontWeight="bold">
                   Cancel
                 </Typography>
-              </Button>
+              </CustomButton>
             </Stack>
           ) : (
             /* SAVE BUTTON */
-            <Button
+            <CustomButton
               type="submit"
               width="100%"
               height="53px"
-              backgroundColor={theme.palette.primary.main}
+              backgroundColor={"primary.main"}
               onClick={() => {}}
-              color={theme.palette.text.primary}
-              hoverColor={theme.palette.text.primary}
-              hoverBgColor={hexToRGBA(theme.palette.primary.main, 0.8)}
+              color={"text.primary"}
+              hoverColor={"text.primary"}
+              hoverBgColor={lightPrimaryMain}
             >
               <Typography fontSize="14px" fontWeight="bold">
                 {`Confirm ${type === "addMoney" ? "Addition" : "Withdrawal"}`}
               </Typography>
-            </Button>
+            </CustomButton>
           )}
         </Stack>
       </form>

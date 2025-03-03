@@ -1,8 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { PieChart } from "@mui/x-charts";
 import { formatNumber } from "../utils/utilityFunctions";
-import { lighten } from "@mui/system"; // To lighten colors
-import theme from "../theme/theme";
+import { lighten } from "@mui/system";
 
 interface BudgetsPieChartProps {
   spendings: number[];
@@ -43,10 +42,10 @@ const BudgetsPieChart = ({
         justifyContent="center"
         sx={{ transform: "translate(-50%, -50%)", zIndex: 2 }}
       >
-        <Typography fontSize="32px" color={theme.palette.primary.main}>
+        <Typography fontSize="32px" color={"primary.main"}>
           ${formatNumber(total)}
         </Typography>
-        <Typography fontSize="12px" color={theme.palette.primary.light}>
+        <Typography fontSize="12px" color={"primary.light"}>
           of ${formatNumber(limit)} limit
         </Typography>
       </Stack>

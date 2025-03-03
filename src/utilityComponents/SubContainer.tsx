@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import theme from "../theme/theme";
 import { Stack } from "@mui/material";
 
 interface SubContainerProps {
@@ -29,7 +28,7 @@ const SubContainer = ({
       flex={flex}
       height={height || "auto"}
       width={width || "auto"}
-      bgcolor={bgColor || theme.palette.primary.contrastText}
+      bgcolor={bgColor || "primary.contrastText"}
       borderRadius="12px"
       gap={gap}
       sx={{

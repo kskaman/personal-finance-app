@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Stack } from "@mui/material";
 
-import theme from "../theme/theme";
-
 import logoIcon from "../assets/images/logo-large.svg";
 import miniLogoIcon from "../assets/images/logo-small.svg";
 
@@ -28,8 +26,8 @@ const Navbar = () => {
       direction="column"
       spacing={3} // spacing of 3 = 3 * 8px
       sx={{
-        backgroundColor: theme.palette.primary.main,
-        color: theme.palette.text.primary,
+        backgroundColor: "primary.main",
+        color: "text.primary",
         alignItems: "flex-start",
         justifyContent: "flex-start",
         height: "100%",

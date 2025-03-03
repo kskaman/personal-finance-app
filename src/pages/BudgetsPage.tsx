@@ -1,6 +1,5 @@
 import { Box, Divider, List, ListItem, Stack, Typography } from "@mui/material";
 import SetTitle from "../components/SetTitle";
-import theme from "../theme/theme";
 import BudgetsPieChart from "../utilityComponents/BudgetsPieChart";
 import PageDiv from "../utilityComponents/PageDiv";
 import SubContainer from "../utilityComponents/SubContainer";
@@ -12,7 +11,7 @@ import {
 import { formatNumber } from "../utils/utilityFunctions";
 import { BalanceTransactionsDataContext } from "../context/BalanceTransactionsContext";
 import { Budget, Category, MarkerTheme, Transaction } from "../types/Data";
-import Button from "../utilityComponents/Button";
+import CustomButton from "../utilityComponents/CustomButton";
 import BudgetsItem from "../components/budgetsComponents/BudgetsItem";
 import useParentWidth from "../customHooks/useParentWidth";
 import { LG_BREAK, MD_SM_BREAK } from "../data/widthConstants";
@@ -166,26 +165,26 @@ const BudgetsPage = () => {
                 height="56px"
                 fontSize="32px"
                 fontWeight="bold"
-                color={theme.palette.primary.main}
+                color={"primary.main"}
               >
                 Budgets
               </Typography>
-              <Button
+              <CustomButton
                 height="53px"
                 padding="16px"
-                backgroundColor={theme.palette.primary.main}
-                color={theme.palette.text.primary}
+                backgroundColor={"primary.main"}
+                color={"text.primary"}
                 onClick={() => {
                   setMode("add");
                   openAddEditModal();
                 }}
-                hoverColor={theme.palette.text.primary}
-                hoverBgColor={theme.palette.primary.light}
+                hoverColor={"text.primary"}
+                hoverBgColor={"primary.light"}
               >
                 <Typography noWrap fontSize="14px" fontWeight="bold">
                   + Add New Budget
                 </Typography>
-              </Button>
+              </CustomButton>
             </Stack>
 
             {/* Budgets summary with doughnut chart */}
@@ -231,7 +230,7 @@ const BudgetsPage = () => {
                               margin: "16px 0",
                               padding: 0,
                               height: "21px",
-                              color: theme.palette.primary.light,
+                              color: "primary.light",
                             }}
                           >
                             <Box
@@ -253,7 +252,7 @@ const BudgetsPage = () => {
                               <Typography
                                 fontSize="16px"
                                 fontWeight="bold"
-                                color={theme.palette.primary.main}
+                                color={"primary.main"}
                               >
                                 {`$${formatNumber(
                                   monthlySpent[budget.category]

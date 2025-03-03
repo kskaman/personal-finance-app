@@ -1,8 +1,8 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, lighten, Stack, Typography } from "@mui/material";
 import ActionModal from "./ActionModal";
-import theme from "../../theme/theme";
-import Button from "../../utilityComponents/Button";
-import { capitalizeSentence, hexToRGBA } from "../../utils/utilityFunctions";
+import CustomButton from "../../utilityComponents/CustomButton";
+import { capitalizeSentence } from "../../utils/utilityFunctions";
+import { useColorFromToken } from "../../customHooks/useColorFromToken";
 
 interface Props {
   open: boolean;
@@ -35,7 +35,7 @@ const DeleteModal = ({
       heading={`Delete '${typedToken}'`}
     >
       <Stack gap="32px">
-        <Typography fontSize="14px" color={theme.palette.primary.light}>
+        <Typography fontSize="14px" color={"primary.light"}>
           {warningText
             ? warningText
             : `Are you sure you want to delete this ${type}? This action cannot be
@@ -43,36 +43,36 @@ const DeleteModal = ({
         </Typography>
 
         <Box>
-          <Button
+          <CustomButton
             width="100%"
             height="53px"
-            backgroundColor={theme.palette.others.red}
-            color={theme.palette.text.primary}
+            backgroundColor={"others.red"}
+            color={"text.primary"}
             onClick={() => {
               onDelete();
               onClose();
             }}
-            hoverColor={theme.palette.text.primary}
-            hoverBgColor={hexToRGBA(theme.palette.others.red, 0.8)}
+            hoverColor={"text.primary"}
+            hoverBgColor={lighten(useColorFromToken("others.red"), 0.2)}
           >
             <Typography fontSize="14px" fontWeight="bold">
               Yes, Confirm Delete
             </Typography>
-          </Button>
+          </CustomButton>
 
-          <Button
+          <CustomButton
             width="100%"
             height="53px"
-            backgroundColor={theme.palette.text.primary}
-            color={theme.palette.primary.light}
+            backgroundColor={"text.primary"}
+            color={"primary.light"}
             onClick={onClose}
-            hoverColor={theme.palette.primary.light}
-            hoverBgColor={theme.palette.text.primary}
+            hoverColor={"primary.light"}
+            hoverBgColor={"text.primary"}
           >
             <Typography fontSize="14px" fontWeight="bold">
               No, Go Back
             </Typography>
-          </Button>
+          </CustomButton>
         </Box>
       </Stack>
     </ActionModal>

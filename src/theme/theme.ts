@@ -1,8 +1,9 @@
 import { createTheme } from "@mui/material";
-import palette from "./palette";
+import { lightPalette, darkPalette } from "./palette";
 
-const theme = createTheme({
-  palette: palette,
+
+export const lightTheme = createTheme({
+  palette: lightPalette,
   components: {
     MuiRadio: {
       defaultProps: {
@@ -14,4 +15,16 @@ const theme = createTheme({
   },
 });
 
-export default theme;
+
+export const darkTheme = createTheme({
+  palette: darkPalette,
+  components: {
+    MuiRadio: {
+      defaultProps: {
+        disableRipple: true,
+        disableFocusRipple: true,
+        disableTouchRipple: true,
+      },
+    },
+  },
+});

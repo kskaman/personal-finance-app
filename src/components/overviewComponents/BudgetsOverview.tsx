@@ -1,7 +1,6 @@
 import { Box, Link, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import CaretRightIcon from "../../Icons/CaretRightIcon";
-import theme from "../../theme/theme";
 import SubContainer from "../../utilityComponents/SubContainer";
 import { useContext } from "react";
 import { BalanceTransactionsDataContext } from "../../context/BalanceTransactionsContext";
@@ -42,11 +41,7 @@ const BudgetsOverview = () => {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Typography
-            fontWeight="bold"
-            fontSize="20px"
-            color={theme.palette.primary.main}
-          >
+          <Typography fontWeight="bold" fontSize="20px" color={"primary.main"}>
             My Budgets
           </Typography>
           <Link
@@ -59,16 +54,16 @@ const BudgetsOverview = () => {
           >
             <Typography
               fontSize="14px"
-              color={theme.palette.primary.light}
+              color={"primary.light"}
               sx={{
                 ":hover": {
-                  color: theme.palette.primary.main,
+                  color: "primary.main",
                 },
               }}
             >
               See Details
             </Typography>
-            <CaretRightIcon color={theme.palette.primary.light} />
+            <CaretRightIcon color={"primary.light"} />
           </Link>
         </Stack>
         <Stack
@@ -113,16 +108,13 @@ const BudgetsOverview = () => {
 
                 {/* Pot Details */}
                 <Stack direction="column">
-                  <Typography
-                    fontSize="12px"
-                    color={theme.palette.primary.light}
-                  >
+                  <Typography fontSize="12px" color={"primary.light"}>
                     {budget.category}
                   </Typography>
                   <Typography
                     fontSize="14px"
                     fontWeight="bold"
-                    color={theme.palette.primary.main}
+                    color={"primary.main"}
                   >
                     ${formatNumber(budget.maximum)}
                   </Typography>

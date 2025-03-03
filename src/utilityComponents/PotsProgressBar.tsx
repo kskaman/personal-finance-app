@@ -1,5 +1,4 @@
 import { Box, LinearProgress, Stack, Typography } from "@mui/material";
-import theme from "../theme/theme";
 import { formatNumber } from "../utils/utilityFunctions";
 
 interface PotsProgressBarProps {
@@ -34,10 +33,10 @@ const PotsProgressBar = ({
           height: "38px",
         }}
       >
-        <Typography fontSize="14px" color={theme.palette.primary.light}>
+        <Typography fontSize="14px" color={"primary.light"}>
           Total Saved
         </Typography>
-        <Typography fontSize="32px" color={theme.palette.primary.main}>
+        <Typography fontSize="32px" color={"primary.main"}>
           {value < 0
             ? `-$${formatNumber(Math.abs(value))}`
             : `$${formatNumber(value)}`}
@@ -62,10 +61,10 @@ const PotsProgressBar = ({
         alignItems="center"
         sx={{ height: "18px" }}
       >
-        <Typography fontSize="12px" color={theme.palette.primary.light}>
+        <Typography fontSize="12px" color={"primary.light"}>
           {fraction.toFixed(2)} %
         </Typography>
-        <Typography fontSize="12px" color={theme.palette.primary.light}>
+        <Typography fontSize="12px" color={"primary.light"}>
           Target of ${formatNumber(target)}
         </Typography>
       </Stack>

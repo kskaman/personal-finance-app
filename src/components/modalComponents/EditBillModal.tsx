@@ -1,14 +1,14 @@
 import { Controller, useForm } from "react-hook-form";
 import ActionModal from "./ActionModal";
-import { Box, Stack, Typography } from "@mui/material";
-import theme from "../../theme/theme";
+import { Box, lighten, Stack, Typography } from "@mui/material";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { formatDecimalNumber, hexToRGBA } from "../../utils/utilityFunctions";
+import { formatDecimalNumber } from "../../utils/utilityFunctions";
 import ModalTextField from "./ModalTextField";
 import ModalSelectDropdown from "./ModalSelectDropdown";
-import Button from "../../utilityComponents/Button";
+import CustomButton from "../../utilityComponents/CustomButton";
 import { dateOptions } from "../../data/dates";
+import { useColorFromToken } from "../../customHooks/useColorFromToken";
 
 // types and Interfaces
 interface EditBillModalProps {
@@ -71,7 +71,7 @@ const EditBillModal = ({
     <ActionModal open={open} onClose={onClose} heading={"Edit Recurring Bill"}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Stack gap="20px">
-          <Typography fontSize="14px" color={theme.palette.primary.light}>
+          <Typography fontSize="14px" color={"primary.light"}>
             Feel free to update your Due Date and Amount.
           </Typography>
 
@@ -111,20 +111,20 @@ const EditBillModal = ({
           />
 
           {/* SAVE BUTTON */}
-          <Button
+          <CustomButton
             type="submit"
             width="100%"
             height="53px"
-            backgroundColor={theme.palette.primary.main}
+            backgroundColor={"primary.main"}
             onClick={() => {}}
-            color={theme.palette.text.primary}
-            hoverColor={theme.palette.text.primary}
-            hoverBgColor={hexToRGBA(theme.palette.primary.main, 0.8)}
+            color={"text.primary"}
+            hoverColor={"text.primary"}
+            hoverBgColor={lighten(useColorFromToken("primary.main"), 0.2)}
           >
             <Typography fontSize="14px" fontWeight="bold">
               Save Changes
             </Typography>
-          </Button>
+          </CustomButton>
         </Stack>
       </form>
     </ActionModal>

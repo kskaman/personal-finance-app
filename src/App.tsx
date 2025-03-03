@@ -9,11 +9,10 @@ import BudgetsPage from "./pages/BudgetsPage";
 import PotsPage from "./pages/PotsPage";
 import TransactionsPage from "./pages/TransactionsPage";
 import TabNavBar from "./components/TabNavBar";
-import theme from "./theme/theme";
 import SettingsPage from "./pages/SettingsPage";
 
 const App = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:520px)");
 
   const isTabletOrMobile = useMediaQuery("(max-width:900px)");
 
@@ -25,7 +24,7 @@ const App = () => {
     **/}
 
       <Stack
-        bgcolor={theme.palette.background.default}
+        bgcolor={"background.default"}
         direction={isTabletOrMobile ? "column" : "row"}
         sx={{ height: "100%", width: "100%" }}
       >

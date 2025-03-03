@@ -1,3 +1,5 @@
+import { Button } from "@mui/material";
+
 interface Props {
   type?: "button" | "submit" | "reset";
   height?: string;
@@ -13,7 +15,7 @@ interface Props {
   flex?: number;
 }
 
-const Button = ({
+const CustomButton = ({
   type = "button",
   flex,
   height = "40px",
@@ -28,39 +30,38 @@ const Button = ({
   onClick,
 }: Props) => {
   return (
-    <button
+    <Button
       type={type}
-      style={{
+      onClick={onClick}
+      sx={{
+        textTransform: "none",
         flex,
         height,
         padding,
-        backgroundColor,
         width,
+        minWidth: "unset",
         display: "flex",
         flexDirection: "row",
         gap: "16px",
         alignItems: "center",
         justifyContent: "center",
         borderRadius: "8px",
-        border: `1px solid ${borderColor || backgroundColor}`,
+        border: "1px solid",
+        borderColor: borderColor || backgroundColor,
+        backgroundColor,
         color,
         cursor: "pointer",
-      }}
-      onClick={onClick}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = hoverBgColor || "inherit";
-        e.currentTarget.style.color = hoverColor;
-        e.currentTarget.style.borderColor = hoverBgColor;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = backgroundColor;
-        e.currentTarget.style.color = color;
-        e.currentTarget.style.borderColor = borderColor || backgroundColor;
+        // handle hover styling via sx:
+        "&:hover": {
+          backgroundColor: hoverBgColor || backgroundColor,
+          color: hoverColor || color,
+          borderColor: hoverBgColor || borderColor || backgroundColor,
+        },
       }}
     >
       {children}
-    </button>
+    </Button>
   );
 };
 
-export default Button;
+export default CustomButton;

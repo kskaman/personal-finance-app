@@ -1,6 +1,5 @@
 import { Typography, Box, Stack } from "@mui/material";
-import Button from "@mui/material/Button";
-import theme from "../theme/theme";
+import CustomButton from "@mui/material/Button";
 
 import MinimizeIcon from "../Icons/MinimizeIcon";
 
@@ -12,13 +11,13 @@ interface MinimizeButtonProps {
 const MinimizeButton = ({ onClick, isMinimized }: MinimizeButtonProps) => {
   return (
     <>
-      <Button
+      <CustomButton
         onClick={onClick}
         disableElevation={true}
         disableTouchRipple={true}
         variant="contained"
         sx={{
-          backgroundColor: theme.palette.primary.main,
+          backgroundColor: "primary.main",
           padding: 0,
           margin: 0,
         }}
@@ -32,11 +31,11 @@ const MinimizeButton = ({ onClick, isMinimized }: MinimizeButtonProps) => {
             width: isMinimized ? "80px" : "276px",
             height: "56px",
             padding: "16px 32px",
-            color: theme.palette.background.paper,
+            color: "background.paper",
             cursor: "pointer",
             textDecoration: "none",
             ":hover": {
-              color: theme.palette.secondary.contrastText,
+              color: "secondary.contrastText",
             },
           }}
         >
@@ -63,7 +62,7 @@ const MinimizeButton = ({ onClick, isMinimized }: MinimizeButtonProps) => {
             </Typography>
           )}
         </Stack>
-      </Button>
+      </CustomButton>
     </>
   );
 };

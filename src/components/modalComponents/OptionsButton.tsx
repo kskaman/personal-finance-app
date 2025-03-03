@@ -1,5 +1,4 @@
-import Button from "../../utilityComponents/Button";
-import theme from "../../theme/theme";
+import CustomButton from "../../utilityComponents/CustomButton";
 import { Box, Menu, MenuItem, Typography } from "@mui/material";
 import { useState } from "react";
 
@@ -20,12 +19,12 @@ const OptionsButton = ({
   type,
   onEdit,
   onDelete,
-  height,
-  backgroundColor,
-  color,
-  hoverBgColor,
-  hoverColor,
-  borderColor,
+  height = "20px",
+  backgroundColor = "inherit",
+  color = "primary.light",
+  hoverBgColor = "text.primary",
+  hoverColor = "primary.light",
+  borderColor = "text.primary",
   marginLeft,
 }: OptionsButtonProps) => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -45,17 +44,17 @@ const OptionsButton = ({
     <>
       {/* ... Button */}
       <Box marginLeft={marginLeft || "auto"}>
-        <Button
-          height={height || "20px"}
-          backgroundColor={backgroundColor || "inherit"}
-          color={color || theme.palette.primary.light}
-          hoverBgColor={hoverBgColor || theme.palette.text.primary}
-          hoverColor={hoverColor || "inherit"}
+        <CustomButton
+          height={height}
+          backgroundColor={backgroundColor}
+          color={color}
+          hoverBgColor={hoverBgColor}
+          hoverColor={hoverColor}
           onClick={handleOpen}
-          borderColor={borderColor || theme.palette.text.primary}
+          borderColor={borderColor}
         >
           <Typography>...</Typography>
-        </Button>
+        </CustomButton>
       </Box>
 
       {/* Dropdown menu */}
@@ -69,6 +68,7 @@ const OptionsButton = ({
               mt: "8px", // gap between select and dropdown
               borderRadius: "8px",
               padding: "12px 20px",
+              bgcolor: "text.primary",
             },
           },
         }}
@@ -92,9 +92,10 @@ const OptionsButton = ({
           }}
           sx={{
             fontSize: "14px",
-            color: theme.palette.primary.light,
+            color: "primary.light",
             padding: "12px 0",
-            borderBottom: `1px solid ${theme.palette.secondary.contrastText}`,
+            borderBottom: "1px solid",
+            borderColor: "secondary.contrastText",
             "&:last-child": { borderBottom: "none" },
             "&:hover": { backgroundColor: "transparent" }, // Remove hover background
             "&.Mui-selected": {
@@ -120,9 +121,10 @@ const OptionsButton = ({
           }}
           sx={{
             fontSize: "14px",
-            color: theme.palette.others.red,
+            color: "others.red",
             padding: "12px 0",
-            borderBottom: `1px solid ${theme.palette.secondary.contrastText}`,
+            borderBottom: "1px solid",
+            borderColor: "secondary.contrastText",
             "&:last-child": { borderBottom: "none" },
             "&:hover": { backgroundColor: "transparent" }, // Remove hover background
             "&.Mui-selected": {

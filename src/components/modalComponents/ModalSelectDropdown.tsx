@@ -6,7 +6,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import theme from "../../theme/theme";
 
 // For the reusable dropdown options
 interface Option {
@@ -47,7 +46,7 @@ const ModalSelectDropdown = ({
     <Box>
       <Typography
         fontSize="12px"
-        color={theme.palette.primary.light}
+        color={"primary.light"}
         fontWeight="bold"
         sx={{ marginBottom: "2px" }}
       >
@@ -62,10 +61,14 @@ const ModalSelectDropdown = ({
         sx={{
           borderRadius: "8px",
           height: "45px",
+          color: "primary.main",
           display: "flex",
           alignItems: "center",
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.primary.main,
+            borderColor: "primary.main",
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "primary.main",
           },
         }}
         MenuProps={{
@@ -74,6 +77,7 @@ const ModalSelectDropdown = ({
               minHeight: "auto",
               maxHeight: "250px",
               overflowY: "auto",
+              bgcolor: "text.primary",
               mt: "8px", // gap between select and dropdown
               borderRadius: "8px",
               padding: "12px 20px",
@@ -91,11 +95,10 @@ const ModalSelectDropdown = ({
             disableRipple
             sx={{
               fontSize: "14px",
-              color: option.used
-                ? theme.palette.primary.light
-                : theme.palette.primary.main,
+              color: option.used ? "primary.light" : "primary.main",
               padding: "12px 0",
-              borderBottom: `1px solid ${theme.palette.secondary.contrastText}`,
+              borderBottom: "1px solid",
+              borderColor: "secondary.contrastText",
               "&:last-child": { borderBottom: "none" },
               "&:hover": { backgroundColor: "transparent" },
               "&.Mui-selected": {

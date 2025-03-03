@@ -5,7 +5,6 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-import theme from "../theme/theme";
 
 interface Props {
   label?: string;
@@ -39,7 +38,10 @@ const CustomDropdown = ({
           alignItems: "center",
           borderRadius: "8px",
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.primary.main,
+            borderColor: "primary.main",
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "primary.main",
           },
         }}
         MenuProps={{
@@ -47,6 +49,8 @@ const CustomDropdown = ({
             sx: {
               minHeight: "auto",
               maxHeight: "250px",
+              bgcolor: "text.primary",
+              color: "primary.main",
               overflowY: "auto",
               mt: "8px", // gap between select and dropdown
               borderRadius: "8px",
@@ -67,7 +71,8 @@ const CustomDropdown = ({
               fontWeight: value === option ? "bold" : "normal",
               color: { color },
               padding: "12px 0",
-              borderBottom: `1px solid ${theme.palette.secondary.contrastText}`,
+              borderBottom: "1px solid",
+              borderColor: "secondary.contrastText",
               "&:last-child": { borderBottom: "none" },
               "&:hover": { backgroundColor: "transparent" }, // Remove hover background
               "&.Mui-selected": {

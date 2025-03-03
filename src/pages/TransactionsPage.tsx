@@ -1,7 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 import SetTitle from "../components/SetTitle";
-import theme from "../theme/theme";
 import PageDiv from "../utilityComponents/PageDiv";
 import SubContainer from "../utilityComponents/SubContainer";
 import Filter from "../utilityComponents/Filter";
@@ -14,7 +13,7 @@ import {
 } from "../context/BalanceTransactionsContext";
 import { RecurringBill, Transaction } from "../types/Data";
 import useParentWidth from "../customHooks/useParentWidth";
-import Button from "../utilityComponents/Button";
+import CustomButton from "../utilityComponents/CustomButton";
 import useModal from "../customHooks/useModal";
 import DeleteModal from "../components/modalComponents/DeleteModal";
 import {
@@ -267,23 +266,23 @@ const TransactionsPage = () => {
                 height="56px"
                 fontSize="32px"
                 fontWeight="bold"
-                color={theme.palette.primary.main}
+                color={"primary.main"}
               >
                 Transactions
               </Typography>
-              <Button
+              <CustomButton
                 height="53px"
                 padding="16px"
-                backgroundColor={theme.palette.primary.main}
-                color={theme.palette.text.primary}
+                backgroundColor="primary.main"
+                color="text.primary"
                 onClick={openAddModal}
-                hoverColor={theme.palette.text.primary}
-                hoverBgColor={theme.palette.primary.light}
+                hoverColor="text.primary"
+                hoverBgColor="primary.light"
               >
                 <Typography noWrap fontSize="14px" fontWeight="bold">
                   + Add New Transaction
                 </Typography>
-              </Button>
+              </CustomButton>
             </Stack>
             <SubContainer>
               <Filter

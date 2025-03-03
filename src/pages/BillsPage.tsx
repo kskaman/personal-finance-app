@@ -1,6 +1,5 @@
 import { Box, Stack, Typography } from "@mui/material";
 import SetTitle from "../components/SetTitle";
-import theme from "../theme/theme";
 import PageDiv from "../utilityComponents/PageDiv";
 import { useContext, useState } from "react";
 import {
@@ -115,7 +114,7 @@ const BillsPage = () => {
               height="56px"
               fontSize="32px"
               fontWeight="bold"
-              color={theme.palette.primary.main}
+              color={"primary.main"}
             >
               Recurring Bills
             </Typography>

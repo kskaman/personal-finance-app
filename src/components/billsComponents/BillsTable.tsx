@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { RecurringBill } from "../../types/Data";
-import theme from "../../theme/theme";
+
 import {
   dateSuffix,
   formatNumber,
@@ -71,7 +71,7 @@ const BillsTable = ({
           <TableCell
             sx={{
               fontSize: "12px",
-              color: theme.palette.primary.light,
+              color: "primary.light",
               textAlign: "left",
             }}
           >
@@ -80,7 +80,7 @@ const BillsTable = ({
           <TableCell
             sx={{
               fontSize: "12px",
-              color: theme.palette.primary.light,
+              color: "primary.light",
               textAlign: "left",
             }}
           >
@@ -89,7 +89,7 @@ const BillsTable = ({
           <TableCell
             sx={{
               fontSize: "12px",
-              color: theme.palette.primary.light,
+              color: "primary.light",
               textAlign: "right",
             }}
           >
@@ -138,7 +138,7 @@ const BillsTable = ({
                       sx={{
                         fontSize: "12px",
                         fontWeight: "bold",
-                        color: theme.palette.primary.contrastText,
+                        color: "text.primary",
                         backgroundColor: bill.theme,
                         width: "32px",
                         height: "32px",
@@ -150,11 +150,7 @@ const BillsTable = ({
                     <Typography
                       fontSize={isDue ? "16px" : "14px"}
                       fontWeight="bold"
-                      color={
-                        isDue
-                          ? theme.palette.others.red
-                          : theme.palette.primary.main
-                      }
+                      color={isDue ? "others.red" : "primary.main"}
                     >
                       {bill.name}
                     </Typography>
@@ -185,11 +181,7 @@ const BillsTable = ({
                     <Typography
                       fontSize={isDue ? "14px" : "12px"}
                       fontWeight={isDue ? "bold" : "normal"}
-                      color={
-                        isDue
-                          ? theme.palette.others.red
-                          : theme.palette.others.green
-                      }
+                      color={isDue ? "others.red" : "others.green"}
                     >
                       {`Monthly~${bill.dueDate}${
                         dateSuffix[bill.dueDate as keyof typeof dateSuffix]
@@ -198,7 +190,7 @@ const BillsTable = ({
                     {status === "paid" ? (
                       <PaidIcon />
                     ) : isDue || dueSoon ? (
-                      <DueIcon color={theme.palette.others.red} />
+                      <DueIcon color={"others.red"} />
                     ) : (
                       ""
                     )}
@@ -206,11 +198,7 @@ const BillsTable = ({
                   <Typography
                     fontSize={isDue ? "16px" : "14px"}
                     fontWeight="bold"
-                    color={
-                      isDue || dueSoon
-                        ? theme.palette.others.red
-                        : theme.palette.primary.main
-                    }
+                    color={isDue || dueSoon ? "others.red" : "primary.main"}
                   >
                     ${formatNumber(Math.abs(bill.amount))}
                   </Typography>
@@ -222,9 +210,7 @@ const BillsTable = ({
                 sx={{
                   display: isParentWidth ? "none" : "table-cell",
                   textAlign: "left",
-                  color: isDue
-                    ? theme.palette.others.red
-                    : theme.palette.primary.main,
+                  color: isDue ? "others.red" : "primary.main",
                   fontWeight: "bold",
                   fontSize: isDue ? "16px" : "14px",
                 }}
@@ -240,7 +226,7 @@ const BillsTable = ({
                     sx={{
                       fontSize: "12px",
                       fontWeight: "bold",
-                      color: theme.palette.primary.contrastText,
+                      color: "text.primary",
                       backgroundColor: bill.theme,
                       width: "40px",
                       height: "40px",
@@ -257,9 +243,7 @@ const BillsTable = ({
                 sx={{
                   display: isParentWidth ? "none" : "table-cell",
                   textAlign: "left",
-                  color: isDue
-                    ? theme.palette.others.red
-                    : theme.palette.others.green,
+                  color: isDue ? "others.red" : "others.green",
                   fontSize: isDue ? "14px" : "12px",
                 }}
               >
@@ -275,7 +259,7 @@ const BillsTable = ({
                   {status === "paid" ? (
                     <PaidIcon />
                   ) : isDue || dueSoon ? (
-                    <DueIcon color={theme.palette.others.red} />
+                    <DueIcon color={"others.red"} />
                   ) : (
                     ""
                   )}
@@ -286,10 +270,7 @@ const BillsTable = ({
                 sx={{
                   display: isParentWidth ? "none" : "table-cell",
                   textAlign: "right",
-                  color:
-                    isDue || dueSoon
-                      ? theme.palette.others.red
-                      : theme.palette.primary.main,
+                  color: isDue || dueSoon ? "others.red" : "primary.main",
                   fontSize: isDue ? "16px" : "14px",
                   fontWeight: "bold",
                 }}

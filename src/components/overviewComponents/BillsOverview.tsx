@@ -1,6 +1,5 @@
 import { Link, Stack, Typography } from "@mui/material";
 import CaretRightIcon from "../../Icons/CaretRightIcon";
-import theme from "../../theme/theme";
 import SubContainer from "../../utilityComponents/SubContainer";
 import { useContext } from "react";
 import { RecurringDataContext } from "../../context/RecurringContext";
@@ -10,24 +9,20 @@ const BillsOverview = () => {
   const { recurringSummary } = useContext(RecurringDataContext);
 
   const summaryData = {
-    paid: { label: "Paid Bills", borderColor: theme.palette.others.green },
+    paid: { label: "Paid Bills", borderColor: "others.green" },
     unpaid: {
       label: "Total Upcoming",
-      borderColor: theme.palette.others.yellow,
+      borderColor: "others.yellow",
     },
-    dueSoon: { label: "Due Soon", borderColor: theme.palette.others.cyan },
-    due: { label: "Due", borderColor: theme.palette.others.red },
+    dueSoon: { label: "Due Soon", borderColor: "others.cyan" },
+    due: { label: "Due", borderColor: "others.red" },
   };
   const showDue = recurringSummary.due.count !== 0;
 
   return (
     <SubContainer>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
-        <Typography
-          fontWeight="bold"
-          fontSize="20px"
-          color={theme.palette.primary.main}
-        >
+        <Typography fontWeight="bold" fontSize="20px" color={"primary.main"}>
           Recurring Bills
         </Typography>
         <Link
@@ -40,16 +35,16 @@ const BillsOverview = () => {
         >
           <Typography
             fontSize="14px"
-            color={theme.palette.primary.light}
+            color={"primary.light"}
             sx={{
               ":hover": {
-                color: theme.palette.primary.main,
+                color: "primary.main",
               },
             }}
           >
             See Details
           </Typography>
-          <CaretRightIcon color={theme.palette.primary.light} />
+          <CaretRightIcon color={"primary.light"} />
         </Link>
       </Stack>
       <Stack gap="12px">
@@ -68,28 +63,21 @@ const BillsOverview = () => {
                 justifyContent="space-between"
                 padding="20px 16px"
                 borderRadius="8px"
-                borderLeft={`4px solid ${summaryData[typedKey].borderColor}`}
-                bgcolor={theme.palette.background.default}
+                borderLeft="4px solid"
+                borderColor={summaryData[typedKey].borderColor}
+                bgcolor={"background.default"}
               >
                 <Typography
                   fontSize="14px"
                   fontWeight={isDue ? "bold" : "normal"}
-                  color={
-                    isDue
-                      ? theme.palette.others.red
-                      : theme.palette.primary.light
-                  }
+                  color={isDue ? "others.red" : "primary.light"}
                 >
                   {summaryData[typedKey].label}
                 </Typography>
                 <Typography
                   fontSize="14px"
                   fontWeight="bold"
-                  color={
-                    isDue
-                      ? theme.palette.others.red
-                      : theme.palette.primary.main
-                  }
+                  color={isDue ? "others.red" : "primary.main"}
                 >
                   ${formatNumber(summary.total)}
                 </Typography>

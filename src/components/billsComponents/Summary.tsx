@@ -1,7 +1,6 @@
 import { Divider, List, ListItem, Typography } from "@mui/material";
 import SubContainer from "../../utilityComponents/SubContainer";
 import { formatNumber } from "../../utils/utilityFunctions";
-import theme from "../../theme/theme";
 import { useContext } from "react";
 import { RecurringDataContext } from "../../context/RecurringContext";
 
@@ -21,11 +20,7 @@ const Summary = () => {
   return (
     <>
       <SubContainer gap="20px" width="100%" padding={{ xs: "20px" }}>
-        <Typography
-          fontSize="16px"
-          fontWeight="bold"
-          color={theme.palette.primary.main}
-        >
+        <Typography fontSize="16px" fontWeight="bold" color={"primary.main"}>
           Summary
         </Typography>
         <List>
@@ -49,11 +44,7 @@ const Summary = () => {
                     <Typography
                       fontSize={isDue ? "14px" : "12px"}
                       fontWeight={isDue ? "bold" : "normal"}
-                      color={
-                        isDue
-                          ? theme.palette.others.red
-                          : theme.palette.primary.light
-                      }
+                      color={isDue ? "others.red" : "primary.light"}
                     >
                       {summaryData[typedKey].label}
                     </Typography>
@@ -62,8 +53,8 @@ const Summary = () => {
                       fontWeight="bold"
                       color={
                         key === "dueSoon" || isDue
-                          ? theme.palette.others.red
-                          : theme.palette.primary.main
+                          ? "others.red"
+                          : "primary.main"
                       }
                     >
                       {`${summary.count} ($${formatNumber(summary.total)})`}

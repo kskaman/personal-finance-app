@@ -8,7 +8,6 @@ import {
   Typography,
 } from "@mui/material";
 import SubContainer from "../../utilityComponents/SubContainer";
-import theme from "../../theme/theme";
 import {
   formatDateToReadable,
   formatNumber,
@@ -56,7 +55,7 @@ const BudgetsItem = ({
             role="heading"
             fontSize="20px"
             fontWeight="bold"
-            color={theme.palette.primary.main}
+            color={"primary.main"}
           >
             {budget.category}
           </Typography>
@@ -70,9 +69,9 @@ const BudgetsItem = ({
           value={monthlySpentForCategory}
           total={budget.maximum}
           color={budget.theme}
-          bgColor={theme.palette.background.default}
+          bgColor={"background.default"}
         />
-        <SubContainer bgColor={theme.palette.background.default}>
+        <SubContainer bgColor={"background.default"}>
           <Stack direction="row">
             <Typography fontWeight="bold" fontSize="16px">
               Latest Spending
@@ -88,16 +87,16 @@ const BudgetsItem = ({
               onClick={openDetails}
             >
               <Typography
-                color={theme.palette.primary.light}
+                color={"primary.light"}
                 sx={{
                   ":hover": {
-                    color: theme.palette.primary.main,
+                    color: "primary.main",
                   },
                 }}
               >
                 See All
               </Typography>
-              <CaretRightIcon color={theme.palette.primary.light} />
+              <CaretRightIcon color={"primary.light"} />
             </Stack>
           </Stack>
           <List>
@@ -111,7 +110,7 @@ const BudgetsItem = ({
                       margin: "12px 0",
                       padding: 0,
                       height: "40px",
-                      color: theme.palette.primary.light,
+                      color: "primary.light",
                     }}
                   >
                     {/* Rounded Avatar with initials */}
@@ -119,7 +118,7 @@ const BudgetsItem = ({
                       sx={{
                         fontSize: "12px",
                         fontWeight: "bold",
-                        color: theme.palette.primary.contrastText,
+                        color: "text.primary",
                         backgroundColor: transaction.theme,
                         width: "40px",
                         height: "40px",
@@ -140,7 +139,7 @@ const BudgetsItem = ({
                         <Typography
                           fontSize="14px"
                           fontWeight="bold"
-                          color={theme.palette.secondary.main}
+                          color={"secondary.main"}
                         >
                           +${formatNumber(transaction.amount)}
                         </Typography>
@@ -148,16 +147,13 @@ const BudgetsItem = ({
                         <Typography
                           fontSize="14px"
                           fontWeight="bold"
-                          color={theme.palette.primary.main}
+                          color={"primary.main"}
                         >
                           -$
                           {formatNumber(Math.abs(transaction.amount))}
                         </Typography>
                       )}
-                      <Typography
-                        fontSize="12px"
-                        color={theme.palette.primary.light}
-                      >
+                      <Typography fontSize="12px" color={"primary.light"}>
                         {formatDateToReadable(transaction.date)}
                       </Typography>
                     </Stack>
@@ -166,7 +162,7 @@ const BudgetsItem = ({
                     <Divider
                       sx={{
                         width: "100%", // Ensure the divider spans across
-                        color: theme.palette.primary.light,
+                        color: "primary.light",
                         marginTop: "8px",
                       }}
                     />

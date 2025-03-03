@@ -1,6 +1,5 @@
 import { Modal, Typography, Stack } from "@mui/material";
-import theme from "../../theme/theme";
-import Button from "../../utilityComponents/Button";
+import CustomButton from "../../utilityComponents/CustomButton";
 import CloseModalIcon from "../../Icons/CloseModalIcon";
 
 interface Props {
@@ -23,7 +22,7 @@ const ActionModal = ({ open, onClose, children, heading }: Props) => {
           overFlowY: "hidden",
           transform: "translate(-50%, -50%)",
           width: { xs: "90%", sm: "560px" },
-          bgcolor: theme.palette.text.primary,
+          bgcolor: "text.primary",
           padding: { xs: "20px 24px", sm: "32px" },
           borderRadius: "12px",
           overflow: "auto",
@@ -46,15 +45,15 @@ const ActionModal = ({ open, onClose, children, heading }: Props) => {
             {heading}
           </Typography>
 
-          <Button
+          <CustomButton
             color={"inherit"}
             onClick={onClose}
             hoverColor={"none"}
             hoverBgColor={"none"}
-            borderColor={theme.palette.text.primary}
+            borderColor={"text.primary"}
           >
             <CloseModalIcon />
-          </Button>
+          </CustomButton>
         </Stack>
         {children}
       </Stack>

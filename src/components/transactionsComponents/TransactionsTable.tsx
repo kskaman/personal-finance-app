@@ -10,7 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 import { Transaction } from "../../types/Data";
-import theme from "../../theme/theme";
 import {
   formatDate,
   formatNumber,
@@ -50,7 +49,7 @@ const TransactionsTable = ({
           <TableCell
             sx={{
               fontSize: "12px",
-              color: theme.palette.primary.light,
+              color: "primary.light",
               textAlign: "left",
             }}
           >
@@ -59,7 +58,7 @@ const TransactionsTable = ({
           <TableCell
             sx={{
               fontSize: "12px",
-              color: theme.palette.primary.light,
+              color: "primary.light",
               textAlign: "left",
             }}
           >
@@ -68,7 +67,7 @@ const TransactionsTable = ({
           <TableCell
             sx={{
               fontSize: "12px",
-              color: theme.palette.primary.light,
+              color: "primary.light",
               textAlign: "left",
             }}
           >
@@ -77,7 +76,7 @@ const TransactionsTable = ({
           <TableCell
             sx={{
               fontSize: "12px",
-              color: theme.palette.primary.light,
+              color: "primary.light",
               textAlign: "right",
             }}
           >
@@ -127,7 +126,7 @@ const TransactionsTable = ({
                       sx={{
                         fontSize: "12px",
                         fontWeight: "bold",
-                        color: theme.palette.primary.contrastText,
+                        color: "text.primary",
                         backgroundColor: txn.theme,
                         width: "32px",
                         height: "32px",
@@ -138,7 +137,7 @@ const TransactionsTable = ({
                     </Avatar>
                     <Typography
                       sx={{
-                        color: theme.palette.primary.main,
+                        color: "primary.main",
                         fontSize: "14px",
                         fontWeight: "bold",
                       }}
@@ -152,10 +151,7 @@ const TransactionsTable = ({
                     sx={{
                       fontSize: "14px",
                       fontWeight: "bold",
-                      color:
-                        txn.amount < 0
-                          ? theme.palette.primary.main
-                          : theme.palette.others.green,
+                      color: txn.amount < 0 ? "primary.main" : "others.green",
                       marginLeft: "auto",
                       marginRight: "8px",
                     }}
@@ -176,7 +172,7 @@ const TransactionsTable = ({
                 <Stack
                   direction="row"
                   justifyContent="space-between"
-                  color={theme.palette.primary.light}
+                  color={"primary.light"}
                   fontSize="12px"
                   width="100%"
                 >
@@ -194,7 +190,7 @@ const TransactionsTable = ({
                     textAlign: "left",
                     fontWeight: "bold",
                     fontSize: "14px",
-                    color: theme.palette.primary.main,
+                    color: "primary.main",
                   }}
                 >
                   <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -202,7 +198,7 @@ const TransactionsTable = ({
                       sx={{
                         fontSize: "12px",
                         fontWeight: "bold",
-                        color: theme.palette.primary.contrastText,
+                        color: "text.primary",
                         backgroundColor: txn.theme,
                         width: "40px",
                         height: "40px",
@@ -217,7 +213,7 @@ const TransactionsTable = ({
                 <TableCell
                   sx={{
                     textAlign: "left",
-                    color: theme.palette.primary.light,
+                    color: "primary.light",
                     fontSize: "12px",
                   }}
                 >
@@ -226,7 +222,7 @@ const TransactionsTable = ({
                 <TableCell
                   sx={{
                     textAlign: "left",
-                    color: theme.palette.primary.light,
+                    color: "primary.light",
                     fontSize: "12px",
                   }}
                 >
@@ -237,10 +233,7 @@ const TransactionsTable = ({
                     textAlign: "right",
                     fontSize: "14px",
                     fontWeight: "bold",
-                    color:
-                      txn.amount < 0
-                        ? theme.palette.primary.main
-                        : theme.palette.others.green,
+                    color: txn.amount < 0 ? "primary.main" : "others.green",
                   }}
                 >
                   {txn.amount < 0 ? "-" : "+"}$
